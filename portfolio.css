@@ -3,6 +3,7 @@
     margin: 0%;
     box-sizing: border-box;
     background-color: black;
+    color: rgb(248, 248, 249);
 }
 .banner{
     background-image: url("https://occ-0-4857-2186.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYoTIInsmO2HJnPJm2E8n5Fm4eQPUBRksw-Oib-qDEN5wQS0d9bTxyY1hVlCvq3kt6fNBTr0IweXAb_ow7r7R3xv860TW_pv3LqN.jpg?r=8c2&quot");
@@ -15,8 +16,27 @@
     color:aliceblue
 }
 .posters{
+    border: 20px;
     display: flex;
   overflow-y: hidden;
     overflow-x: scroll;
-    
+    margin: 1% 0.5%;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.poster{
+    margin: 0% 0.5%;
+    border-radius: 0.5%;
+}
+h1{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0% 1%;
+}
+h3{
+text-align: center;
+font-weight: 100;
+font-size: 0.8rem;
+padding: 2% 0%;
 }
