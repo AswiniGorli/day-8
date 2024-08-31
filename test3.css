@@ -1,17 +1,17 @@
 .new{
-    width: 90px;
+    width: 80px;
     height: 70px;
     border: 5px solid black;
     background-color: black;
 }
 .container{
-    height: 60px;
-    width: 60px;
-   
-    border-radius: 50%;
-    padding-bottom: -20px;
-    
-    background-color: blue;
+    width: 0px;
+    height: 0px;
+    border-right: 60px solid transparent;
+    border-top: 60px solid red;
+    border-left: 60px solid red;
+    border-bottom: 60px solid red;
+  border-radius: 50%;
     
 }
 
