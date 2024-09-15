@@ -3,10 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <marquee behavior="" direction=""></marquee>
+    <title>Girls A Block Common Rooms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(225, 192, 192);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: darkslategray;
+            margin: 20px;
+        }
+        
+        .room-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 250px;
+            background-color: aqua;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(108, 233, 244);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(72, 182, 208);
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .details-form {
+            display: none;
+            margin-top: 10px;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+         
+            padding: 10px;
+        
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    
-</body> 
+    <h1>Common Rooms for Girls (A Block)</h1>
+
+    <div class="room-container">
+        <!-- Room 1 -->
+        <div class="container">
+            <h2>Room 01</h2>
+            <ul>
+                <li>p.Anjali (v-50) --> GGU</li>
+                <li>U.Roja (v-65) --> GGU</li>
+                <li>G.Aswini (v-41) --> GGU</li>
+                <li>Empty</li>
+            </ul>
+            <p>Is the room empty?</p>
+            <input type="radio" name="room_status1" value="yes"> Yes
+            <input type="radio" name="room_status1" value="no"> No
+            <button id="bookButton1">Book Room</button>
+            <div id="bookingResult1" class="result"></div>
+
+            <!-- Details form -->
+            <div id="detailsForm1" class="details-form">
+                <h3>Enter Your Details:</h3>
+                <label for="name1">Name:</label>
+                <input type="text" id="name1" placeholder="Enter your name" required>
+                <label for="studentID1">Student ID:</label>
+                <input type="number" id="studentID1" placeholder="Enter your student ID" required>
+                <label for="contact1">Contact Number:</label>
+                <input type="number" id="contact1" placeholder="Enter your contact number" required>
+                <button class="submit-btn" onclick="submitDetails(1)">Submit</button>
+            </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="container">
+            <h2>Room 02</h2>
+            <ul>
+                <li>A.Vasanthi (v-1) --> DEGREE</li>
+                <li>Y.Radha (v-69) --> DEGREE</li>
+                <li>Empty</li>
+                <li>Empty</li>
+            </ul>
+            <p>Is the room empty?</p>
+            <input type="radio" name="room_status2" value="yes"> Yes
+            <input type="radio" name="room_status2" value="no"> No
+            <button id="bookButton2">Book Room</button>
+            <div id="bookingResult2" class="result"></div>
+
+            <!-- Details form -->
+            <div id="detailsForm2" class="details-form">
+                <h3>Enter Your Details:</h3>
+                <label for="name2">Name:</label>
+                <input type="text" id="name2" placeholder="Enter your name" required>
+                <label for="studentID2">Student ID:</label>
+                <input type="number" id="studentID2" placeholder="Enter your student ID" required>
+                <label for="contact2">Contact Number:</label>
+                <input type="number" id="contact2" placeholder="Enter your contact number" required>
+                <button class="submit-btn" onclick="submitDetails(2)">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle room booking
+        function bookRoom(roomNumber) {
+            const radioButtons = document.querySelectorAll(`input[name="room_status${roomNumber}"]`);
+            let roomStatus;
+
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    roomStatus = radioButton.value;
+                    break;
+                }
+            }
+
+            const resultElement = document.getElementById(`bookingResult${roomNumber}`);
+            const formElement = document.getElementById(`detailsForm${roomNumber}`);
+            
+            if (!roomStatus) {
+                resultElement.innerHTML = "Please select whether the room is empty.";
+            } else if (roomStatus === "yes") {
+                resultElement.innerHTML = "Room booked successfully! Please fill in your details.";
+                formElement.style.display = "block"; // Show the details form
+            } else {
+                resultElement.innerHTML = "Room is not available for booking.";
+                formElement.style.display = "none"; // Hide the form if room is not available
+            }
+        }
+
+        // Function to submit user details
+        function submitDetails(roomNumber) {
+            const name = document.getElementById(`name${roomNumber}`).value;
+            const studentID = document.getElementById(`studentID${roomNumber}`).value;
+            const contact = document.getElementById(`contact${roomNumber}`).value;
+
+            if (name && studentID && contact) {
+                alert(`Room ${roomNumber} booked successfully!\nName: ${name}\nStudent ID: ${studentID}\nContact: ${contact}`);
+                document.getElementById(`detailsForm${roomNumber}`).style.display = "none"; // Hide the form after submission
+            } else {
+                alert("Please fill in all the details.");
+            }
+        }
+
+        // Adding event listeners for each room
+        document.getElementById("bookButton1").addEventListener("click", function() {
+            bookRoom(1);
+        });
+
+        document.getElementById("bookButton2").addEventListener("click", function() {
+            bookRoom(2);
+        });
+    </script>
+</body>
 </html>
