@@ -4,14 +4,14 @@
     box-sizing: 0;
 }
 body{
-    background-color: #fff;
+    background-color: #000000;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
+   
 
     }
 
-  
+ 
+ 
 
 .banner
 {
@@ -41,4 +41,34 @@ max-width: 60%;
  .discription
 {
     margin: 3%;
+}
+.bannercontent
+{
+    padding: 20% 10%;
+}
+.bannerTitle h1 
+{
+     color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.bannerTitle span
+{
+     color: #A3A3A3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+.bannerTitle h3 .star
+{
+     color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+/*navbar*/
+nav .logo img
+{
+    width: 20%;
+    height: 20%;
+    display: flex;
+    
 }
